@@ -60,6 +60,7 @@ export class PasscodePage implements OnInit{
       if (status == 'forgot') {
         this.toast.showToast('forgot password');  
       }
+      this.navCtrl.push(HomePage)
     })
   }
 
@@ -78,7 +79,7 @@ export class PasscodePage implements OnInit{
           localStorage.setItem('pin', pincode);
           this.isPinSet = true;
           this.toast.showToast('pin set successfuly');  
-          return Promise.resolve(this.navCtrl.push(HomePage));
+          return Promise.resolve();
         } else {
           localStorage.setItem('isPinSet', 'false');
           this.toast.showToast('pin does not match');  
@@ -87,7 +88,7 @@ export class PasscodePage implements OnInit{
       }
     } else if (this.isPinSet) {
       if (pincode == localStorage.getItem('pin')) {
-        return Promise.resolve(this.navCtrl.push(HomePage));
+        return Promise.resolve();
       } else {
         this.toast.showToast('Wroong pin');
         return Promise.reject('');

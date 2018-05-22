@@ -16,3 +16,7 @@ page-passcode {
    .passcode  p{color:#fff;font-size: 20px;text-align: left;font-weight: 300;line-height:30px}
  
    ion-pincode .pincode-wrapper{height:70%!important;border-top:none!important;background-color:#005498!important}
+   ion-pincode .pincode-button-wrapper ion-col button{background:none!important;border: solid 1px #ccc!important;
+    width:60px!important;height:60px!important;border-radius: 50%!important;opacity: 100%; }
+    ion-pincode .pincode-wrapper .button-md{color:#fff!important;margin:15px 0px!important;}
+    ion-pincode .pincode-button-wrapper{bottom: 15%!important;margin:0 auto;left: 0!important;right: 0!important;width:70%!important}

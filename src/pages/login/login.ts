@@ -60,21 +60,12 @@ export class LoginPage implements OnInit {
         console.log('fb login resp success-- ', resp);
         if (resp['status'] == 'connected') {
           this.toastProvider.showToast('logged in into fb');
-          this.facebook.api('me?fields=id,name,email,mobile,first_name,last_name,picture.width(720).height(720).as(picture_large)', 
+          this.facebook.api('me?fields=id,name,email,first_name,last_name,picture.width(720).height(720).as(picture_large)', 
             []).then(data => {
               console.log('data-- ', data);
-              this.database.createDatabase().then((res: any) => {
-                if (this.platform.is('cordova')) {
-                  if (res.length > 0) {
-                    this.toastProvider.showToast('Logged in successfuly!!!');
-                    this.navCtrl.push(PasscodePage);
-                  }
-                } else {
-                  this.toastProvider.showToast('Logged in successfuly!!!');
-                  this.navCtrl.push(PasscodePage);
-                } 
-              })
+              this.navCtrl.push(PasscodePage);
             });
+            this.navCtrl.push(PasscodePage);
         }
       }).catch(
         e => {
